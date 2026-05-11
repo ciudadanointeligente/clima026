@@ -1,0 +1,16 @@
+
+			import { createHandler } from './.netlify/build/entry.mjs';
+
+			export default createHandler({"notFoundContent":"<!DOCTYPE html><html lang=\"es\"> <head><meta charset=\"UTF-8\"><meta name=\"description\" content=\"La página que buscas no existe.\"><meta name=\"viewport\" content=\"width=device-width\"><meta name=\"theme-color\" content=\"#0369A1\"><link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\"><meta name=\"generator\" content=\"Astro v6.2.1\"><title>Página no encontrada</title><link rel=\"stylesheet\" href=\"/_astro/Layout.91gFskw6.css\"><script type=\"module\" src=\"/_astro/page.CQhogMj7.js\"></script></head> <body> <a href=\"#main-content\" class=\"sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded\">\nIr al contenido principal\n</a> <header class=\"border-b border-border py-4 mb-8\"> <nav aria-label=\"Navegación principal\" class=\"flex items-center justify-between max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"> <a href=\"/\" class=\"text-xl font-bold text-text no-underline hover:text-primary cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2\"> Clima </a> <ul class=\"flex gap-6 list-none m-0 p-0\"> <li> <a href=\"/\" class=\"text-muted no-underline hover:text-text cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2\"> Inicio </a> </li><li> <a href=\"/keystatic\" class=\"text-muted no-underline hover:text-text cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2\"> Admin </a> </li> </ul> </nav> </header> <main id=\"main-content\" class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8\">  <div class=\"text-center py-16 px-4 sm:px-6 lg:px-8\"> <h1 class=\"text-6xl font-bold text-text mb-4\">404</h1> <p class=\"text-2xl text-muted mb-8\">Página no encontrada</p> <p class=\"text-muted mb-8\">\nLo sentimos, la página que buscas no existe o fue movida.\n</p> <a href=\"/\" class=\"inline-block bg-text text-white px-6 py-3 rounded-lg hover:bg-primary cursor-pointer transition-colors duration-200 no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2\">\nVolver al inicio\n</a> </div>  </main> <footer class=\"border-t border-border py-6 mt-12\"> <div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"> <p class=\"text-center text-sm text-muted m-0\">&copy; 2026 Clima. Todos los derechos reservados.</p> </div> </footer> </body></html>"});
+
+			// The config must be inlined here instead of imported because Netlify
+			// parses this file statically to read the config.
+			export const config = {
+				includedFiles: ['**/*'],
+				name: 'Astro SSR',
+				nodeBundler: 'none',
+				generator: '@astrojs/netlify@7.0.8',
+				path: '/*',
+				preferStatic: true,
+			};
+		
