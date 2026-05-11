@@ -1,0 +1,26 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const { slug } = Astro.params;
+if (!slug) throw new Error('Slug not found');
+const medida = await getEntry('medidas', slug);
+
+if (!medida) throw new Error('No se encontró la medida para este slug');
+const { Content } = await render(medida);
+
+// Generate static pages
+export async function getStaticPaths() {
+  const medidas = await getCollection('medidas');
+  return medidas.map(medida => ({ params: { slug: medida.id } }));
+}
+---
+
+<Layout title={medida.data.nombre} description={medida.data.nombre}>
+  <div class="px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="text-3xl font-bold mb-6">{medida.data.nombre}</h1>
+    <div class="prose prose-lg max-w-none">
+      <Content />
+    </div>
+  </div>
+</Layout>

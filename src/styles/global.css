@@ -1,1 +1,20 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary: #0369A1;
+  --color-primary-hover: #075981;
+  --color-text: #0F172A;
+  --color-muted: #475569;
+  --color-border: #E2E8F0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

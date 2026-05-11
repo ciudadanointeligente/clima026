@@ -2,25 +2,28 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
-const posts = await getCollection('posts');
+const medidas = await getCollection('medidas');
 ---
 
-<Layout title="Keystatic & Astro's Content Collections">
-  <div>
-    <h1>Keystatic ⚡️ + Astro 🚀</h1>
-    <p>
-      This homepage shows how to load data from Astro's content collections.
+<Layout title="Evaluación de Medidas Legislativas" description="Sitio web para mostrar la evaluación realizada a propuestas y medidas legislativas.">
+  <div class="px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="text-3xl font-bold mb-4">Evaluación de Medidas Legislativas</h1>
+    <p class="mb-6 text-muted">
+      Este sitio muestra la evaluación realizada a propuestas y medidas legislativas,
+      organizadas por categorías, subcategorías y criterios de evaluación.
     </p>
-    <p>
-      <a href="/keystatic">Click here to visit the Admin UI</a>, or the link
-      below to view a post in the collection.
+    <p class="mb-8">
+      <a href="/keystatic" class="text-primary hover:underline cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Ir al panel de administración</a>
     </p>
-    <h2>Posts</h2>
-    <ul>
+
+    <h2 class="text-2xl font-semibold mb-4">Medidas Evaluadas</h2>
+    <ul class="space-y-2">
       {
-        posts.map(post => (
+        medidas.map(medida => (
           <li>
-            <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+            <a href={`/medidas/${medida.id}`} class="text-primary hover:underline cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+              {medida.data.nombre}
+            </a>
           </li>
         ))
       }
