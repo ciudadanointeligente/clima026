@@ -9,7 +9,7 @@ export default config({
   collections: {
     categorias: collection({
       label: 'Categorías',
-      format: { contentField: null },
+      format: { contentField: undefined },
       slugField: 'nombre',
       path: 'src/content/categorias/*',
       schema: {
@@ -24,7 +24,7 @@ export default config({
     }),
     tipos: collection({
       label: 'Tipos',
-      format: { contentField: null },
+      format: { contentField: undefined },
       slugField: 'nombre',
       path: 'src/content/tipos/*',
       schema: {
@@ -39,7 +39,7 @@ export default config({
     }),
     criterios: collection({
       label: 'Criterios',
-      format: { contentField: null },
+      format: { contentField: undefined },
       slugField: 'nombre',
       path: 'src/content/criterios/*',
       schema: {
@@ -64,7 +64,7 @@ export default config({
     }),
     boletines: collection({
       label: 'Boletines',
-      format: { contentField: null },
+      format: { contentField: undefined },
       slugField: 'nombre',
       path: 'src/content/boletines/*',
       schema: {
@@ -114,9 +114,23 @@ export default config({
           }),
           {
             label: 'Criterios aplicados',
-            itemLabel: props => props.value,
+            itemLabel: props => props.value ?? '',
           }
         ),
+      },
+    }),
+    posts: collection({
+      label: 'Posts',
+      slugField: 'title',
+      path: 'src/content/posts/*',
+      format: { contentField: 'contenido' },
+      schema: {
+        title: fields.slug({
+          name: { label: 'Título' },
+        }),
+        contenido: fields.markdoc({
+          label: 'Contenido',
+        }),
       },
     }),
     alertas: collection({
@@ -180,7 +194,7 @@ export default config({
         ),
     },
     navigation: {
-      Contenido: ['categorias', 'tipos', 'criterios', 'medidas'],
+      Contenido: ['categorias', 'tipos', 'criterios', 'medidas', 'posts'],
       Comunicación: ['boletines', 'alertas'],
     },
   },

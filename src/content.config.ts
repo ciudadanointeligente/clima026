@@ -47,6 +47,13 @@ const medidas = defineCollection({
   }),
 });
 
+const posts = defineCollection({
+  loader: glob({ pattern: '**/*.mdoc', base: './src/content/posts' }),
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
 const alertas = defineCollection({
   loader: glob({ pattern: '**/*.mdoc', base: './src/content/alertas' }),
   schema: z.object({
@@ -63,5 +70,6 @@ export const collections = {
   criterios,
   boletines,
   medidas,
+  posts,
   alertas,
 };
