@@ -1,10 +1,11 @@
 import { config, fields, collection } from '@keystatic/core';
 import React from 'react';
 
+const isDev = import.meta.env.DEV;
+
 export default config({
-  storage: {
-    kind: 'local',
-  },
+  storage: isDev ? { kind: 'local' } : { kind: 'cloud' },
+  ...(isDev ? {} : { cloud: { project: 'fciweb/clima026' } }),
   collections: {
     categorias: collection({
       label: 'Categorías',
