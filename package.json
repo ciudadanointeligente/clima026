@@ -37,5 +37,13 @@
   },
   "devDependencies": {
     "@types/nodemailer": "^8.0.0"
-  }
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "sharp"
+    ]
+  },
+  "packageManager": "pnpm@10.30.2"
 }
