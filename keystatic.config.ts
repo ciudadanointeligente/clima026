@@ -175,27 +175,11 @@ export default config({
           'div',
           { style: { display: 'flex', alignItems: 'center', gap: 16 } },
           React.createElement('span', { style: { fontWeight: 700 } }, 'Clima'),
-          React.createElement(
-            'a',
-            {
-              href: '/alertas',
-              style: {
-                fontSize: 14,
-                fontWeight: 500,
-                color: colorScheme === 'dark' ? '#93c5fd' : '#2563eb',
-                textDecoration: 'none',
-                padding: '4px 10px',
-                borderRadius: 6,
-                background: colorScheme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(37,99,235,0.1)',
-              },
-            },
-            '+ Enviar Alertas'
-          )
         ),
     },
     navigation: {
-      Contenido: ['categorias', 'tipos', 'criterios', 'medidas', 'posts'],
-      Comunicación: ['boletines', 'alertas'],
+      Análisis: ['categorias', 'tipos', 'criterios', 'medidas'],
+      Comunicación: ['posts'],
     },
   },
 });
