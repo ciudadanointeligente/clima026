@@ -10,8 +10,8 @@ const categorias = defineCollection({
 });
 
 
-const tipos = defineCollection({
-  loader: glob({ pattern: '**/*.yaml', base: './src/content/tipos' }),
+const instrumentos = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/instrumentos' }),
   schema: z.object({
     nombre: z.string(),
     descripcion: z.string().optional(),
@@ -19,12 +19,12 @@ const tipos = defineCollection({
 });
 
 
-const criterios = defineCollection({
-  loader: glob({ pattern: '**/*.yaml', base: './src/content/criterios' }),
+const indicadores = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/indicadores' }),
   schema: z.object({
     nombre: z.string(),
     explicacion: z.string().optional(),
-    tipo: z.string(),
+    instrumento: z.string(),
     categoria: z.string(),
   }),
 });
@@ -43,7 +43,7 @@ const medidas = defineCollection({
   loader: glob({ pattern: '**/*.mdoc', base: './src/content/medidas' }),
   schema: z.object({
     nombre: z.string(),
-    criterios: z.array(z.string()),
+    indicadores: z.array(z.string()),
   }),
 });
 
@@ -66,8 +66,8 @@ const alertas = defineCollection({
 
 export const collections = {
   categorias,
-  tipos,
-  criterios,
+  instrumentos,
+  indicadores,
   boletines,
   medidas,
   posts,

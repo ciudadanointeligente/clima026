@@ -22,11 +22,11 @@ export default config({
         }),
       },
     }),
-    tipos: collection({
-      label: 'Tipos',
+    instrumentos: collection({
+      label: 'Instrumentos',
       format: { contentField: undefined },
       slugField: 'nombre',
-      path: 'src/content/tipos/*',
+      path: 'src/content/instrumentos/*',
       schema: {
         nombre: fields.slug({
           name: { label: 'Nombre' },
@@ -37,11 +37,11 @@ export default config({
         }),
       },
     }),
-    criterios: collection({
-      label: 'Criterios',
+    indicadores: collection({
+      label: 'Indicadores',
       format: { contentField: undefined },
       slugField: 'nombre',
-      path: 'src/content/criterios/*',
+      path: 'src/content/indicadores/*',
       schema: {
         nombre: fields.slug({
           name: { label: 'Nombre' },
@@ -50,14 +50,14 @@ export default config({
           label: 'Explicación',
           multiline: true,
         }),
-        tipo: fields.relationship({
-          label: 'Tipo',
-          description: 'Tipo al que pertenece el criterio',
-          collection: 'tipos',
+        instrumento: fields.relationship({
+          label: 'Instrumento',
+          description: 'Instrumento al que pertenece el indicador',
+          collection: 'instrumentos',
         }),
         categoria: fields.relationship({
           label: 'Categoría',
-          description: 'Categoría a la que pertenece el criterio',
+          description: 'Categoría a la que pertenece el indicador',
           collection: 'categorias',
         }),
       },
@@ -106,14 +106,14 @@ export default config({
             },
           },
         }),
-        criterios: fields.array(
+        indicadores: fields.array(
           fields.relationship({
-            label: 'Criterio',
-            description: 'Criterio aplicado',
-            collection: 'criterios',
+            label: 'Indicador',
+            description: 'Indicador aplicado',
+            collection: 'indicadores',
           }),
           {
-            label: 'Criterios aplicados',
+            label: 'Indicadores aplicados',
             itemLabel: props => props.value ?? '',
           }
         ),
@@ -178,7 +178,7 @@ export default config({
         ),
     },
     navigation: {
-      Análisis: ['categorias', 'tipos', 'criterios', 'medidas'],
+      Análisis: ['categorias', 'instrumentos', 'indicadores', 'medidas'],
       Comunicación: ['posts'],
     },
   },

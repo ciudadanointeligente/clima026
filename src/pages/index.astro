@@ -10,7 +10,7 @@ const medidas = await getCollection('medidas');
     <h1 class="text-3xl font-bold mb-4">Evaluación de Medidas Legislativas</h1>
     <p class="mb-6 text-muted">
       Este sitio muestra la evaluación realizada a propuestas y medidas legislativas,
-      organizadas por categorías, subcategorías y criterios de evaluación.
+      organizadas por categorías, subcategorías e indicadores de evaluación.
     </p>
     <p class="mb-8">
       <a href="/keystatic" class="text-primary hover:underline cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Ir al panel de administración</a>
@@ -26,9 +26,9 @@ const medidas = await getCollection('medidas');
           >
             <h3 class="text-lg font-semibold text-text">{medida.data.nombre}</h3>
             {
-              medida.data.criterios && medida.data.criterios.length > 0 && (
+              medida.data.indicadores && medida.data.indicadores.length > 0 && (
                 <p class="mt-2 text-sm text-muted">
-                  {medida.data.criterios.length} criterio{medida.data.criterios.length !== 1 ? 's' : ''}
+                  {medida.data.indicadores.length} indicador{medida.data.indicadores.length !== 1 ? 'es' : ''}
                 </p>
               )
             }
