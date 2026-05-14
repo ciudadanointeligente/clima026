@@ -10,6 +10,7 @@ export default config({
     categorias: collection({
       label: 'Categorías',
       format: { contentField: undefined },
+      columns: ['nombre', 'descripcion'],
       slugField: 'nombre',
       path: 'src/content/categorias/*',
       schema: {
@@ -26,6 +27,7 @@ export default config({
       label: 'Instrumentos',
       format: { contentField: undefined },
       slugField: 'nombre',
+      columns: ['nombre', 'descripcion'],
       path: 'src/content/instrumentos/*',
       schema: {
         nombre: fields.slug({
@@ -41,6 +43,7 @@ export default config({
       label: 'Indicadores',
       format: { contentField: undefined },
       slugField: 'nombre',
+      columns: ['nombre', 'instrumento', 'categoria'],
       path: 'src/content/indicadores/*',
       schema: {
         nombre: fields.slug({
@@ -66,6 +69,7 @@ export default config({
       label: 'Boletines',
       format: { contentField: undefined },
       slugField: 'nombre',
+      columns: ['nombre', 'fecha'],
       path: 'src/content/boletines/*',
       schema: {
         nombre: fields.slug({
@@ -91,12 +95,18 @@ export default config({
     medidas: collection({
       label: 'Medidas-Eventos',
       slugField: 'nombre',
+      columns: ['nombre', 'fecha'],
       path: 'src/content/medidas/*',
       format: { contentField: 'descripcion' },
       schema: {
         nombre: fields.slug({
           name: { label: 'Nombre' },
         }),
+        fecha: fields.date({
+          label: 'Fecha',
+          validation: { isRequired: true },
+        }),
+
         descripcion: fields.markdoc({
           label: 'Descripción',
           options: {
